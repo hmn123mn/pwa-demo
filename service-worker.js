@@ -1,8 +1,7 @@
-// configuration
 `use strict`;
 
 const
-  version = '2.0.3',
+  version = '2.3.4',
   CACHE = version + '::PWAsite',
   offlineURL = './offline/',
   installFilesEssential = [
@@ -123,6 +122,7 @@ self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
 
   let url = event.request.url;
+  console.log(url);
 
   event.respondWith(
 
