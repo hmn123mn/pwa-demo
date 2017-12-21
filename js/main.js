@@ -13,7 +13,7 @@ if (!window.addEventListener || !window.history || !window.requestAnimationFrame
 if ('serviceWorker' in navigator) {
   // register service worker
   console.log('register sw...');
-  navigator.serviceWorker.register('/service-worker.js');
+  navigator.serviceWorker.register('./service-worker.js');
 
   // load script to populate offline page list
   if (document.getElementById('cachedpagelist') && 'caches' in window) {
