@@ -2,7 +2,7 @@
 `use strict`;
 
 const
-  version = '1.0.2',
+  version = '2.0.3',
   CACHE = version + '::PWAsite',
   offlineURL = '/offline/',
   installFilesEssential = [
@@ -11,7 +11,8 @@ const
     '/css/styles.css',
     '/js/main.js',
     '/js/offlinepage.js',
-    '/images/logo/logo152.png'
+    '/images/logo/logo152.png',
+    '/images/logo/logo192.png'
   ].concat(offlineURL),
   installFilesDesirable = [
     '/favicon.ico',

@@ -11,14 +11,14 @@ if (!window.addEventListener || !window.history || !window.requestAnimationFrame
 
 // enable service worker
 if ('serviceWorker' in navigator) {
-
   // register service worker
-  navigator.serviceWorker.register('/service-worker.js');
+  console.log('register sw...');
+  navigator.serviceWorker.register('../service-worker.js');
 
   // load script to populate offline page list
   if (document.getElementById('cachedpagelist') && 'caches' in window) {
     var scr = document.createElement('script');
-    scr.src = '/js/offlinepage.js';
+    scr.src = './offlinepage.js';
     scr.async = 1;
     document.head.appendChild(scr);
   }
