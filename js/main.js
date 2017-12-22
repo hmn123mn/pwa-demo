@@ -18,7 +18,7 @@ if ('serviceWorker' in navigator) {
   // load script to populate offline page list
   if (document.getElementById('cachedpagelist') && 'caches' in window) {
     var scr = document.createElement('script');
-    scr.src = './offlinepage.js';
+    scr.src = './js/offlinepage.js';
     scr.async = 1;
     document.head.appendChild(scr);
   }
