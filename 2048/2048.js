@@ -368,7 +368,7 @@ var game = {
 			var c = Math.round(Math.random()*(this.CN-1));
 			if (this.data[r][c]==0) {
 				var num = Math.random();
-				this.data[r][c] = num>0.5?2:4;
+				this.data[r][c] = num>0.8?2:4;
 				break;
 			}
 		}
