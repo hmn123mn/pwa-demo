@@ -32,7 +32,7 @@
   <script src="./2048/2048.js"></script>
   <script src="./2048/animation.js"></script>
   <style type="text/css">
-    .back{
+    #back{
       text-decoration: none;
       font-size: 40px;
       color: #333;
@@ -92,7 +92,7 @@
 <!-- <div id="menu"><a href="#nav">menu</a></div> -->
 
 <!-- navigation -->
-<a href="./index.html" class="back">返回首页</a>
+<a href="./index.html"  id="back">返回首页</a>
 <nav id="nav">
   <ul>
     <li><a href="#menu" title="close menu" class="close">&#x2715;</a></li>
@@ -125,6 +125,11 @@
 <script src="./js/main.js" defer></script>
 <script type="text/javascript">
     (function (doc, win) {
+      back.addEventListener('touchstart', function (ev){
+          ev.preventDefault();
+          console.log(12);
+          window.location.href="./index.html";
+      }, false);
       var docEl = win.document.documentElement;
       var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
       var metaEl = doc.querySelector('meta[name="viewport"]');
