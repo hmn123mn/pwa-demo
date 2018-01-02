@@ -31,16 +31,27 @@
 <link rel="stylesheet" href="./2048/2048.css">
   <script src="./2048/2048.js"></script>
   <script src="./2048/animation.js"></script>
+  <style type="text/css">
+    .back{
+      text-decoration: none;
+      font-size: 40px;
+      color: #333;
+      font-weight: bold;
+      position: absolute;
+      right: 60px;
+      top: 20px;
+    }
+  </style>
 </head>
 <body>
 
 <!-- header -->
-<header>
+<!-- <header style="position: absolute;width: 100%;z-index: 999"> -->
 
   <!-- logo -->
-  <a href="./" class="logo"><img src="./images/logo/logo152.png" alt="PWA"></a>
+  <!-- <a href="./"><img src="./images/logo/logo152.png" alt="PWA"> 返回首页</a> -->
 
-</header>
+<!-- </header> -->
 
 <!-- content -->
 <!-- <main>
@@ -77,7 +88,22 @@
   <p>test</p>
 </footer> -->
 
-<div style="transform: scale(.5,.5)">
+<!-- menu link -->
+<!-- <div id="menu"><a href="#nav">menu</a></div> -->
+
+<!-- navigation -->
+<a href="./index.html" class="back">返回首页</a>
+<nav id="nav">
+  <ul>
+    <li><a href="#menu" title="close menu" class="close">&#x2715;</a></li>
+    <li><a href="./index.html" class="nav">home</a></li>
+    <li><a href="./work.html" class="nav">work</a></li>
+    <li><a href="./about.html" class="nav">about</a></li>
+    <li><a href="./contact.html" class="active nav">contact</a></li>
+  </ul>
+</nav>
+
+<div>
   <p>
     Top:<span id="topScore">0</span> <br />
     Score:<span id="score">0</span> <br />
@@ -94,20 +120,44 @@
   </div>
 </div>
 
-<!-- menu link -->
-<div id="menu"><a href="#nav">menu</a></div>
 
-<!-- navigation -->
-<nav id="nav">
-  <ul>
-    <li><a href="#menu" title="close menu" class="close">&#x2715;</a></li>
-    <li><a href="./index.html" class="nav">home</a></li>
-    <li><a href="./work.html" class="nav">work</a></li>
-    <li><a href="./about.html" class="nav">about</a></li>
-    <li><a href="./contact.html" class="active nav">contact</a></li>
-  </ul>
-</nav>
 
 <script src="./js/main.js" defer></script>
+<script type="text/javascript">
+    (function (doc, win) {
+      var docEl = win.document.documentElement;
+      var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+      var metaEl = doc.querySelector('meta[name="viewport"]');
+      var dpr = 0;
+      var scale = 0;
+
+      // 对iOS设备进行dpr的判断，对于Android系列，始终认为其dpr为1
+      if (!dpr && !scale) {
+        var isAndroid = win.navigator.appVersion.match(/android/gi);
+        var isIPhone = win.navigator.appVersion.match(/[iphone|ipad]/gi);
+        var devicePixelRatio = win.devicePixelRatio;
+
+        if(isIPhone) {
+          dpr = devicePixelRatio;
+        } else {
+          drp = 1;
+        }
+        
+        scale = 1 / dpr;
+      }
+
+      docEl.setAttribute('data-dpr', dpr);
+      // 动态改写meta:viewport标签
+      if (!metaEl) {
+        metaEl = doc.createElement('meta');
+        metaEl.setAttribute('name', 'viewport');
+        metaEl.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+        document.documentElement.firstElementChild.appendChild(metaEl);
+      } else {
+        metaEl.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+      }
+
+    })(document, window);
+  </script>
 </body>
 </html>
