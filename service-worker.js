@@ -1,7 +1,7 @@
 `use strict`;
 
 const
-  version = '3.0.8',
+  version = '3.1.1',
   CACHE = version + '::PWAsite',
   offlineURL = './offline.html',
   installFilesEssential = [
