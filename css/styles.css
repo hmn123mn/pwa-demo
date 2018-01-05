@@ -120,10 +120,12 @@ footer p {
 
 #nav:target {
   animation: navopen 0.4s ease-out 0s 1 forwards;
+  -webkit-animation: navopen 0.4s ease-out 0s 1 forwards;
 }
 
 #menu:target ~ #nav {
   animation: navclose 0.3s ease-in 0s 1 forwards;
+  -webkit-animation: navclose 0.3s ease-in 0s 1 forwards;
 }
 
 #nav ul {
